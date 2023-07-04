@@ -24,7 +24,6 @@ class Model {
     }
 
     async loadModel(modelId, modelTexturesId, message) {
-        modelId = 5;
         localStorage.setItem("modelId", modelId);
         localStorage.setItem("modelTexturesId", modelTexturesId);
         showMessage(message, 4000, 10);
@@ -39,9 +38,8 @@ class Model {
     }
 
     async loadRandModel() {
-        let modelId = localStorage.getItem("modelId"),
+        const modelId = localStorage.getItem("modelId"),
             modelTexturesId = localStorage.getItem("modelTexturesId");
-        modelId = 5;
         if (this.useCDN) {
             if (!this.modelList) await this.loadModelList();
             const target = randomSelection(this.modelList.models[modelId]);
